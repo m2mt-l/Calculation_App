@@ -1,0 +1,45 @@
+.calculation-box{
+    color: white;
+    font-family: Helvetica!important;
+    height: fit-content;
+    width: 500px;
+    border-radius: 15px;
+}
+
+.binary{
+    font-size: 0.9rem;
+}
+
+.bottons{
+    height: 300px;
+    width: 25%;
+}
+.button{
+    width: 20%;
+    height: 4em;
+    border: none;
+    margin: 0.08em;
+    color: white;
+}
+
+.disabledButton{
+    width: 20%;
+    height: 4em;
+    border: none;
+    margin: 0.08em;
+    color: silver;
+    background-color: #6c757d;
+}
+
+.bg-gray{
+    background-color: gray;
+}
+
+
+.bg-darkgray{
+    background-color: rgb(80, 80, 80);
+}
+
+.bg-orange {
+    background-color: orange;
+}
