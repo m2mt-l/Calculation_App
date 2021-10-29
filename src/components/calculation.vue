@@ -213,10 +213,10 @@ export default {
             this.insert4bitsBinary();
         },
 
+        //Javascript is not accurate over 54 bits. bigInt did not work on this evironment.
+        //2 ** 64 = 18446744073709552000
         turnOverMinus(number){
             let newNumber = 0;
-            //Javascript is not accurate over 54 bits. bigInt did not work on this evironment.
-            //2 ** 64 = 18446744073709552000
             newNumber = 2**64 + number;
             return newNumber;            
         },
