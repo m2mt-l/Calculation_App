@@ -5,7 +5,7 @@ Recursion Vue.js Project Calculation App
 https://m2mt-l.github.io/Calculation_App/
 
 ## Desciption
-This is a calculator app based on Mac programmer calculator. It returs binary, decimal and hex.
+This is a calculator app based on Mac programmer calculator. It returns binary, decimal and hex.
 
 ## Limitation
 Since the limitaion of JavaScript Number, the results over 54 bits are not accurate. Tried to use BigInt, but it did not work.
