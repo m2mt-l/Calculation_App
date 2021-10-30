@@ -234,13 +234,7 @@ export default {
             this.currentOperator = '';
             this.nums = [];
             this.ops = [];
-            this.clearBinaryArray();
-        },
-
-        clearBinaryArray(){
-            for(let i = 0; i < this.binaryArray.length; i++){
-                this.binaryArray[i] = "0000";
-            }
+            this.binaryArray = this.binaryArray.map(()=>"0000")
         },
 
         getPriority(operator) {
