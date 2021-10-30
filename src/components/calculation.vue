@@ -25,23 +25,28 @@
                     <button class="disabledButton" disabled value="A"><h4>A</h4></button>
                     <button class="disabledButton" disabled value="B"><h4>B</h4></button>
                     <button class="disabledButton" disabled value="C"><h4>C</h4></button>
-                    <button class="button bg-orange" value="/" v-on:click="addCurrentOperator('/')"><h4>÷</h4></button>
+                    <button class="button bg-orange" value="/" v-if="disableOperator()"><h4>÷</h4></button>
+                    <button class="button bg-orange" value="/" v-on:click="addCurrentOperator('/')" v-else><h4>÷</h4></button>
                     <button class="disabledButton" disabled value="7"><h4>7</h4></button>
                     <button class="disabledButton" disabled value="8"><h4>8</h4></button>
                     <button class="disabledButton" disabled value="9"><h4>9</h4></button>
-                    <button class="button bg-orange" value="*" v-on:click="addCurrentOperator('*')"><h4>x</h4></button>
+                    <button class="button bg-orange" value="*" v-if="disableOperator()"><h4>x</h4></button>
+                    <button class="button bg-orange" value="*" v-on:click="addCurrentOperator('*')" v-else><h4>x</h4></button>
                     <button class="disabledButton" disabled value="4"><h4>4</h4></button>
                     <button class="disabledButton" disabled value="5"><h4>5</h4></button>
                     <button class="disabledButton" disabled value="6"><h4>6</h4></button>
-                    <button class="button bg-orange" value="-" v-on:click="addCurrentOperator('-')"><h4>-</h4></button>
+                    <button class="button bg-orange" value="-" v-if="disableOperator()"><h4>-</h4></button>
+                    <button class="button bg-orange" value="-" v-on:click="addCurrentOperator('-')" v-else><h4>-</h4></button>
                     <button class="disabledButton" disabled value="1"><h4>1</h4></button>
                     <button class="disabledButton" disabled value="2"><h4>2</h4></button>
                     <button class="disabledButton" disabled value="3"><h4>3</h4></button>
-                    <button class="button bg-orange" value="+" v-on:click="addCurrentOperator('+')"><h4>+</h4></button>
+                    <button class="button bg-orange" value="+" v-if="disableOperator()"><h4>+</h4></button>
+                    <button class="button bg-orange" value="+" v-on:click="addCurrentOperator('+')" v-else><h4>+</h4></button>
                     <button class="disabledButton" disabled value="FF"><h4>FF</h4></button>
                     <button class="disabledButton" disabled value="0"><h4>0</h4></button>
                     <button class="disabledButton" disabled value="00"><h4>00</h4></button>
-                    <button class="button bg-orange" v-on:click="showEqual()"><h4>=</h4></button>
+                    <button class="button bg-orange" v-if="disableOperator()"><h4>=</h4></button>
+                    <button class="button bg-orange" v-on:click="showEqual()" v-else><h4>=</h4></button>
                 </div>
             </template>
             <template v-else>
@@ -59,24 +64,29 @@
                     <button class="button bg-secondary" value="B" v-on:click="addCurrentOperand('B')" v-else><h4>B</h4></button>
                     <button class="disabledButton" disabled value="C" v-if="isDecimal()"><h4>C</h4></button>
                     <button class="button bg-secondary" value="C" v-on:click="addCurrentOperand('C')" v-else><h4>C</h4></button>
-                    <button class="button bg-orange" value="/" v-on:click="addCurrentOperator('/')"><h4>÷</h4></button>
+                    <button class="button bg-orange" value="/" v-if="disableOperator()"><h4>÷</h4></button>
+                    <button class="button bg-orange" value="/" v-on:click="addCurrentOperator('/')" v-else><h4>÷</h4></button>
                     <button class="button bg-secondary" value="7" v-on:click="addCurrentOperand('7')"><h4>7</h4></button>
                     <button class="button bg-secondary" value="8" v-on:click="addCurrentOperand('8')"><h4>8</h4></button>
                     <button class="button bg-secondary" value="9" v-on:click="addCurrentOperand('9')"><h4>9</h4></button>
-                    <button class="button bg-orange" value="*" v-on:click="addCurrentOperator('*')"><h4>x</h4></button>
+                    <button class="button bg-orange" value="*" v-if="disableOperator()"><h4>x</h4></button>
+                    <button class="button bg-orange" value="*" v-on:click="addCurrentOperator('*')" v-else><h4>x</h4></button>
                     <button class="button bg-secondary" value="4" v-on:click="addCurrentOperand('4')"><h4>4</h4></button>
                     <button class="button bg-secondary" value="5" v-on:click="addCurrentOperand('5')"><h4>5</h4></button>
                     <button class="button bg-secondary" value="6" v-on:click="addCurrentOperand('6')"><h4>6</h4></button>
-                    <button class="button bg-orange" value="-" v-on:click="addCurrentOperator('-')"><h4>-</h4></button>
+                    <button class="button bg-orange" value="-" v-if="disableOperator()"><h4>-</h4></button>
+                    <button class="button bg-orange" value="-" v-on:click="addCurrentOperator('-')" v-else><h4>-</h4></button>
                     <button class="button bg-secondary" value="1" v-on:click="addCurrentOperand('1')"><h4>1</h4></button>
                     <button class="button bg-secondary" value="2" v-on:click="addCurrentOperand('2')"><h4>2</h4></button>
                     <button class="button bg-secondary" value="3" v-on:click="addCurrentOperand('3')"><h4>3</h4></button>
-                    <button class="button bg-orange" value="+" v-on:click="addCurrentOperator('+')"><h4>+</h4></button>
+                    <button class="button bg-orange" value="+" v-if="disableOperator()"><h4>+</h4></button>
+                    <button class="button bg-orange" value="+" v-on:click="addCurrentOperator('+')" v-else><h4>+</h4></button>
                     <button class="disabledButton" disabled value="FF" v-if="isDecimal()"><h4>FF</h4></button>
                     <button class="button bg-secondary" value="FF" v-on:click="addCurrentOperand('FF')" v-else><h4>FF</h4></button>
                     <button class="button bg-secondary" value="0" v-on:click="addCurrentOperand('0')"><h4>0</h4></button>
                     <button class="button bg-secondary" value="00" v-on:click="addCurrentOperand('00')"><h4>00</h4></button>
-                    <button class="button bg-orange" v-on:click="showEqual()"><h4>=</h4></button>
+                    <button class="button bg-orange" v-if="disableOperator()"><h4>=</h4></button>
+                    <button class="button bg-orange" v-on:click="showEqual()" v-else><h4>=</h4></button>
                 </div>
             </template>  
         </div>
@@ -235,6 +245,10 @@ export default {
             this.nums = [];
             this.ops = [];
             this.binaryArray = this.binaryArray.map(()=>"0000")
+        },
+        
+        disableOperator(){
+            return this.currentOperand === '';
         },
 
         getPriority(operator) {
