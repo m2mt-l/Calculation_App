@@ -214,7 +214,7 @@ export default {
         },
 
         //Javascript is not accurate over 54 bits. bigInt did not work on this evironment.
-        //2 ** 64 = 18446744073709552000
+        //2 ** 64 should be 18446744073709551616, but return 18446744073709552000
         turnOverMinus(number){
             let newNumber = 0;
             newNumber = 2**64 + number;
